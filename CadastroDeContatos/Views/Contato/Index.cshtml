@@ -2,35 +2,62 @@
     ViewData["Title"] = "Listagem de Contatos";
 }
 
-<h1 class="display-4">Listagem de Contatos</h1>
+<div class="text-center">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">E-mail</th>
-            <th scope="col">Celular</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Luis</td>
-            <td>luis@gmail.com</td>
-            <td>(00) 00000000</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Maria</td>
-            <td>maria@gmail.com</td>
-            <td>(00) 00000000</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Lorena</td>
-            <td>lorena@gmail.com</td>
-            <td>(00) 00000000</td>
-        </tr>
-    </tbody>
-</table>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar Contato</a>
+    </div>
+    <br />
+    <h1 class="display-4">Listagem de Contatos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Celular</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Luis</td>
+                <td>luis@gmail.com</td>
+                <td>(00) 00000000</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Maria</td>
+                <td>maria@gmail.com</td>
+                <td>(00) 00000000</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Lorena</td>
+                <td>lorena@gmail.com</td>
+                <td>(00) 00000000</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Editar">Editar</a>
+                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
