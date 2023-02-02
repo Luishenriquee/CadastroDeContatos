@@ -1,11 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CadastroDeContatos.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CadastroDeContatos.Data
 {
-    public class BancoContext
+    public class BancoContext : DbContext
     {
+        public BancoContext(DbContextOptions<BancoContext> options) : base(options)
+        {
+        }
+
+        public DbSet<ContatoModel> Contatos { get; set; }
     }
 }
