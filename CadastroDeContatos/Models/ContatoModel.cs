@@ -7,7 +7,7 @@ namespace CadastroDeContatos.Models
 {
     public class ContatoModel
     {
-        public int ContatoId { get; set; }
+        public int Id { get; set; }
 
         public string Nome { get; set; }
 
