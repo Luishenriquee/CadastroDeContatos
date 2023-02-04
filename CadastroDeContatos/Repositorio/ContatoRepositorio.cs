@@ -41,6 +41,19 @@ namespace CadastroDeContatos.Repositorio
             return contatoDB;
         }
 
+        public bool ExcluirContato(int id)
+        {
+            ContatoModel contatoDB = ListarContatoPorId(id);
+
+            if (contatoDB is null)
+                throw new Exception("Houve um erro ao excluir o contato!");
+
+            _bancoContext.Contatos.Remove(contatoDB);
+            _bancoContext.SaveChanges();
+
+            return true;
+        }
+
         public List<ContatoModel> ListarContato()
         {
             return _bancoContext.Contatos.ToList();

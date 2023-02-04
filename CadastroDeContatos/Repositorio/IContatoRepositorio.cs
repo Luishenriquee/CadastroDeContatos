@@ -15,5 +15,7 @@ namespace CadastroDeContatos.Repositorio
         ContatoModel ListarContatoPorId(int id);
 
         ContatoModel EditarContato(ContatoModel contato);
+
+        bool ExcluirContato(int id);
     }
 }
