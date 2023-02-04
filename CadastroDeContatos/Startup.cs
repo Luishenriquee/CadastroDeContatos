@@ -1,4 +1,5 @@
 using CadastroDeContatos.Data;
+using CadastroDeContatos.Repositorio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,7 @@ namespace CadastroDeContatos
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<BancoContext>(x => x.UseSqlServer(Configuration.GetConnectionString("Database")));
+            services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
