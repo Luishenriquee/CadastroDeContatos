@@ -18,40 +18,61 @@ namespace CadastroDeContatos.Repositorio
 
         public ContatoModel Adicionar(ContatoModel contato)
         {
-            _bancoContext.Contatos.Add(contato);
-            _bancoContext.SaveChanges();
+            try
+            {
+                _bancoContext.Contatos.Add(contato);
+                _bancoContext.SaveChanges();
 
-            return contato;
+                return contato;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível adicionar o contato!", ex);
+            }
         }
 
         public ContatoModel EditarContato(ContatoModel contato)
         {
-            ContatoModel contatoDB = ListarContatoPorId(contato.Id);
+            try
+            {
+                ContatoModel contatoDB = ListarContatoPorId(contato.Id);
 
-            if (contatoDB is null) 
-                throw new Exception("Houve um erro ao edição do contato!");
+                if (contatoDB is null)
+                    throw new Exception("Houve um erro ao edição do contato!");
 
-            contatoDB.Nome = contato.Nome;
-            contatoDB.Email = contato.Email;
-            contatoDB.Celular = contato.Celular;
+                contatoDB.Nome = contato.Nome;
+                contatoDB.Email = contato.Email;
+                contatoDB.Celular = contato.Celular;
 
-            _bancoContext.Contatos.Update(contatoDB);
-            _bancoContext.SaveChanges();
+                _bancoContext.Contatos.Update(contatoDB);
+                _bancoContext.SaveChanges();
 
-            return contatoDB;
+                return contatoDB;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível editar o contato!", ex);
+            }
         }
 
         public bool ExcluirContato(int id)
         {
-            ContatoModel contatoDB = ListarContatoPorId(id);
+            try
+            {
+                ContatoModel contatoDB = ListarContatoPorId(id);
 
-            if (contatoDB is null)
-                throw new Exception("Houve um erro ao excluir o contato!");
+                if (contatoDB is null)
+                    throw new Exception("Houve um erro ao excluir o contato!");
 
-            _bancoContext.Contatos.Remove(contatoDB);
-            _bancoContext.SaveChanges();
+                _bancoContext.Contatos.Remove(contatoDB);
+                _bancoContext.SaveChanges();
 
-            return true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Não foi possível excluir o contato!", ex);
+            }
         }
 
         public List<ContatoModel> ListarContato()
