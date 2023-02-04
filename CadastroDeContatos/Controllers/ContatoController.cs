@@ -27,10 +27,13 @@ namespace CadastroDeContatos.Controllers
         {
             return View();
         }
-        public IActionResult Editar()
+
+        public IActionResult Editar(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepositorio.ListarContatoPorId(id);
+            return View(contato);
         }
+
         public IActionResult ApagarConfirmacao()
         {
             return View();
@@ -40,6 +43,13 @@ namespace CadastroDeContatos.Controllers
         public IActionResult Criar(ContatoModel contato)
         {
             _contatoRepositorio.Adicionar(contato);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Editar(ContatoModel contato)
+        {
+            _contatoRepositorio.EditarContato(contato);
             return RedirectToAction("Index");
         }
     }

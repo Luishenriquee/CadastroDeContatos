@@ -24,9 +24,31 @@ namespace CadastroDeContatos.Repositorio
             return contato;
         }
 
+        public ContatoModel EditarContato(ContatoModel contato)
+        {
+            ContatoModel contatoDB = ListarContatoPorId(contato.Id);
+
+            if (contatoDB is null) 
+                throw new Exception("Houve um erro ao edição do contato!");
+
+            contatoDB.Nome = contato.Nome;
+            contatoDB.Email = contato.Email;
+            contatoDB.Celular = contato.Celular;
+
+            _bancoContext.Contatos.Update(contatoDB);
+            _bancoContext.SaveChanges();
+
+            return contatoDB;
+        }
+
         public List<ContatoModel> ListarContato()
         {
             return _bancoContext.Contatos.ToList();
+        }
+
+        public ContatoModel ListarContatoPorId(int id)
+        {
+            return _bancoContext.Contatos.FirstOrDefault(x => x.Id == id);
         }
     }
 }

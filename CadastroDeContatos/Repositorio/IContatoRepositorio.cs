@@ -11,5 +11,9 @@ namespace CadastroDeContatos.Repositorio
         ContatoModel Adicionar(ContatoModel contato);
 
         List<ContatoModel> ListarContato();
+
+        ContatoModel ListarContatoPorId(int id);
+
+        ContatoModel EditarContato(ContatoModel contato);
     }
 }
