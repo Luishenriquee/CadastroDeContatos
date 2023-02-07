@@ -43,6 +43,9 @@ namespace CadastroDeContatos.Controllers
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
         {
+            if (!ModelState.IsValid)
+                return View(contato);
+
             _contatoRepositorio.Adicionar(contato);
             return RedirectToAction("Index");
         }
