@@ -1,8 +1,8 @@
 ﻿@model List<ContatoModel>
 
-    @{
-        ViewData["Title"] = "Listagem de Contatos";
-    }
+@{
+    ViewData["Title"] = "Listagem de Contatos";
+}
 
 <div class="text-center">
 
@@ -11,14 +11,23 @@
     </div>
     <br />
 
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="btn btn-danger btn-sm Close-alert" arial-label="Close">X</button>
-        This is a success alert—check it out!
-    </div>
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm Close-alert" arial-label="Close">X</button>
-        This is a danger alert—check it out!
-    </div>
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-success btn-sm Close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm Close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+    <br />
 
     <h1 class="display-4">Listagem de Contatos</h1>
 

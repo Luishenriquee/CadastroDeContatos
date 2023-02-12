@@ -43,27 +43,59 @@ namespace CadastroDeContatos.Controllers
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
         {
-            if (!ModelState.IsValid)
-                return View(contato);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return View(contato);
 
-            _contatoRepositorio.Adicionar(contato);
-            return RedirectToAction("Index");
+                _contatoRepositorio.Adicionar(contato);
+                TempData["MensagemSucesso"] = "Contato cadastrado com sucesso!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao cadastrar um contato, {ex.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
         public IActionResult Editar(ContatoModel contato)
         {
-            if (!ModelState.IsValid)
-                return View("Editar", contato);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return View("Editar", contato);
 
-            _contatoRepositorio.EditarContato(contato);
-            return RedirectToAction("Index");
+                _contatoRepositorio.EditarContato(contato);
+                TempData["MensagemSucesso"] = "Contato alterado com sucesso!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao alterar o contato, {ex.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
         public IActionResult Excluir(int id)
         {
-            _contatoRepositorio.ExcluirContato(id);
-            return RedirectToAction("Index");
+            try
+            {
+                bool apagado = _contatoRepositorio.ExcluirContato(id);
+
+                if (apagado)
+                    TempData["MensagemSucesso"] = "Contato excluido com sucesso!";
+                else
+                    TempData["MensagemErro"] = $"Erro ao excluir um contato";
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["MensagemErro"] = $"Erro ao excluir um contato, {ex.Message}";
+                return RedirectToAction("Index");
+            }
         }
     }
 }
