@@ -43,6 +43,7 @@ namespace CadastroDeContatos.Repositorio
                 usuarioDB.Nome = usuario.Nome;
                 usuarioDB.Email = usuario.Email;
                 usuarioDB.Login = usuario.Login;
+                usuarioDB.Senha = usuario.Senha;
                 usuarioDB.PerfilAcesso = usuario.PerfilAcesso;
                 usuarioDB.DataAtualizacao = DateTime.Now;
 

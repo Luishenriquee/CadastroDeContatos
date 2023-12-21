@@ -22,7 +22,9 @@ namespace CadastroDeContatos.Models
         public string Senha { get; set; }
 
         public PerfilAcesso PerfilAcesso { get; set; }
+
         public DateTime DataCadastro { get; set; }
+
         public DateTime? DataAtualizacao { get; set; }
     }
 }
