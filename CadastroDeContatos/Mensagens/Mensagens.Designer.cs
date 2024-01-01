@@ -59,5 +59,59 @@ namespace CadastroDeContatos.Mensagens {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contato cadastrado com sucesso!.
+        /// </summary>
+        public static string MSG0001 {
+            get {
+                return ResourceManager.GetString("MSG0001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erro ao cadastrar um contato: {0}.
+        /// </summary>
+        public static string MSG0002 {
+            get {
+                return ResourceManager.GetString("MSG0002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contato alterado com sucesso!.
+        /// </summary>
+        public static string MSG0003 {
+            get {
+                return ResourceManager.GetString("MSG0003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erro ao alterar o contato.
+        /// </summary>
+        public static string MSG0004 {
+            get {
+                return ResourceManager.GetString("MSG0004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contato excluido com sucesso!.
+        /// </summary>
+        public static string MSG0005 {
+            get {
+                return ResourceManager.GetString("MSG0005", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erro ao excluir um contato.
+        /// </summary>
+        public static string MSG0006 {
+            get {
+                return ResourceManager.GetString("MSG0006", resourceCulture);
+            }
+        }
     }
 }

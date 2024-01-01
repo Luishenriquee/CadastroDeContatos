@@ -47,12 +47,12 @@ namespace CadastroDeContatos.Controllers
                     return View(contato);
 
                 _contatoRepositorio.Adicionar(contato);
-                TempData["MensagemSucesso"] = "Contato cadastrado com sucesso!";
+                TempData["MensagemSucesso"] = Mensagens.Mensagens.MSG0001;
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Erro ao cadastrar um contato, {ex.Message}";
+                TempData["MensagemErro"] = string.Format(Mensagens.Mensagens.MSG0002, ex);
                 return RedirectToAction("Index");
             }
         }
@@ -66,12 +66,12 @@ namespace CadastroDeContatos.Controllers
                     return View("Editar", contato);
 
                 _contatoRepositorio.EditarContato(contato);
-                TempData["MensagemSucesso"] = "Contato alterado com sucesso!";
+                TempData["MensagemSucesso"] = Mensagens.Mensagens.MSG0003;
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Erro ao alterar o contato, {ex.Message}";
+                TempData["MensagemErro"] = string.Format(Mensagens.Mensagens.MSG0004, ex);
                 return RedirectToAction("Index");
             }
         }
@@ -83,15 +83,15 @@ namespace CadastroDeContatos.Controllers
                 bool apagado = _contatoRepositorio.ExcluirContato(id);
 
                 if (apagado)
-                    TempData["MensagemSucesso"] = "Contato excluido com sucesso!";
+                    TempData["MensagemSucesso"] = Mensagens.Mensagens.MSG0005;
                 else
-                    TempData["MensagemErro"] = $"Erro ao excluir um contato";
+                    TempData["MensagemErro"] = Mensagens.Mensagens.MSG0006;
 
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
-                TempData["MensagemErro"] = $"Erro ao excluir um contato, {ex.Message}";
+                TempData["MensagemErro"] = string.Format(Mensagens.Mensagens.MSG0006, ex);
                 return RedirectToAction("Index");
             }
         }
